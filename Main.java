@@ -93,6 +93,10 @@ public class Main
 			"in our own growth and self-reflection. We appreciate you taking that journey with us! :D");
 	}
 
+	public static void comparePeople(Person[] group) {
+		system.out.println("Compare People Here");
+	}
+
 	/***** TODO: (Part 2) upgrade method to ask user for pronouns and background info *****/
 	public static void fillInfo(Person person){
 		//sets default privilege prior to questionnaire to 100
