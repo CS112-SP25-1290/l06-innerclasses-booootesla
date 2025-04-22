@@ -96,17 +96,29 @@ public class Main
 	/***** TODO: (Part 2) upgrade method to ask user for pronouns and background info *****/
 	public static void fillInfo(Person person){
 		//sets default privilege prior to questionnaire to 100
-		String name, story;
+		String name, pronouns, story;
 		
 		System.out.println("What is your name? ");
 		name = keyboard.nextLine();
-		System.out.println("\nHello " + name + ", write a small self-identifying statement about yourself "
+
+		System.out.println("\nHello " + name + "!");
+		System.out.println("Here is a common examples of preferred pronouns:");
+		//from
+
+		System.out.println("Gender Neutral/Nonbinary: they/them/their(s) or ze/hir/hirs");
+		System.out.println("Feminine: she/her/hers");
+		System.out.println("Masculine: he/him/his");
+		System.out.println("What are your preferred pronouns");
+		pronouns = keyboard.nextLine();
+
+		System.out.println("\nPlease write a small self-identifying statement about yourself "
 				+ "and your background and identity, this can be anything you like!\n"
 				+ "For example: I'm a [nationality / place of origin / ethnicity / sexuality / gender expression / etc.]...");
 		System.out.println("Tell us about yourself: ");
 		story = keyboard.nextLine();
 		
 		person.setName(name);
+		person.setPronouns(pronouns)
 		person.setStory(story);
 	}
 

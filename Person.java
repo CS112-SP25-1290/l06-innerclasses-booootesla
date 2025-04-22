@@ -4,27 +4,29 @@ public class Person
 
 	// CONSTANT VARIABLES
 	public static final String DEFAULT_NAME = "Jamie Doe";
+
+	public static final String DEFAULT_PRONOUNS = "they/them/their(s)";
 	public static final String DEFAULT_STORY =  "Unknown";
 	public static final int DEFAULT_PRIVILEGE = 100;
 
 	// INSTANCE VARIABLES
-	private String name, story;
+	private String name, pronouns, story;
 	private int privilege;
 
 	// CONSTRUCTORS	
-	public Person(String name, String story, int privilege) {
-		this.setAll(name, story, privilege);
+	public Person(String name, String pronouns, String story, int privilege) {
+		this.setAll(name, pronouns, story, privilege);
 	}
 		
 	public Person() {
-		this(DEFAULT_NAME, DEFAULT_STORY, DEFAULT_PRIVILEGE);
+		this(DEFAULT_NAME, DEFAULT_PRONOUNS, DEFAULT_STORY, DEFAULT_PRIVILEGE);
 	}
 	
 	public Person(Person original) {
 		if(original == null) {
 			throw new IllegalArgumentException("Cannot copy null obect in Person copy constructor");
 		} else {
-			this.setAll(original.name, original.story, original.privilege);
+			this.setAll(original.name, original.pronouns, original.story, original.privilege);
 		}
 	}
 
@@ -32,6 +34,8 @@ public class Person
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	public void setPronouns(String pronouns) { this.pronouns = pronouns; }
 
 	public void setStory(String story) {
 		this.story = story;
@@ -41,15 +45,20 @@ public class Person
 		this.privilege = privilege;
 	}
 
-	public void setAll(String name, String story, int privilege) {
+	public void setAll(String name, String pronouns, String story, int privilege) {
 		this.setPrivilege(privilege);
 		this.setName(name);
+		this.setPronouns(pronouns);
 		this.setStory(story);
 	}
 
 	// ACCESSORS / GETTERS
 	public String getName() {
 		return this.name;
+	}
+
+	public String getPronouns() {
+		return this.pronouns;
 	}
 		
 	public String getStory() {
@@ -82,4 +91,14 @@ public class Person
 
 	// INTERFACE METHODS
 	/***** TODO: (Part 1) override compareTo method to implement Comparable interface*****/
+	@Overrride
+	public int compareTo(Object other) {
+		if(other == null || (!(other instanceof Person))) {
+			throw new IllegalArgumentException("null given to compareTo method in Person, or not a Person type.");
+		}
+
+		Person otherPerson = (Person)other;
+
+		return this.privilage - otherPerson.privilege;
+	}
 }
