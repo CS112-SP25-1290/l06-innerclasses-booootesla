@@ -74,7 +74,7 @@ public class Main
 					break;
 				case 3:
 					/***** TODO: (Part 1) implement a comparison case using the comparable method on the Person class to compare self to p1-p4*****/
-					
+					 Main.comparePeople(people);
 					System.out.println("\nReturning to main menu.\n");
 					break;
 				case 4:
@@ -91,6 +91,19 @@ public class Main
 
 		System.out.println("Thank you for exploring your privilege, it can be uncomfortable but it's a crucial step" +
 			"in our own growth and self-reflection. We appreciate you taking that journey with us! :D");
+	}
+
+	public static void comparePeople(Person[] group) {
+		Person self = group[group.length - 1];
+		int comparePeople;
+
+		for(int i = 0; i < group.length - 1; i++){
+			comparePeople = self.compareTo(group[i]);
+
+			if(compareResult > 0) {
+				System.out.println("More priviledge then" + people[i].getName());
+			}
+		}
 	}
 
 	/***** TODO: (Part 2) upgrade method to ask user for pronouns and background info *****/
@@ -118,7 +131,7 @@ public class Main
 		story = keyboard.nextLine();
 		
 		person.setName(name);
-		person.setPronouns(pronouns)
+		person.setPronouns(pronouns);
 		person.setStory(story);
 	}
 

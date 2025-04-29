@@ -24,7 +24,7 @@ public class Person
 	
 	public Person(Person original) {
 		if(original == null) {
-			throw new IllegalArgumentException("Cannot copy null obect in Person copy constructor");
+			throw new IllegalArgumentException("Cannot copy null object in Person copy constructor");
 		} else {
 			this.setAll(original.name, original.pronouns, original.story, original.privilege);
 		}
